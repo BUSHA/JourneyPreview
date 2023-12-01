@@ -18,7 +18,7 @@ min-height:40%;
 min-width: 620px;
 padding:0;
 vertical-align:baseline;
-width:65vw
+width:60vw
 }
 
 .main {
@@ -28,8 +28,8 @@ width:100%
 
 .preview {
 font-weight:400;
-padding:20px;
-width:70%
+padding: 20px;
+width:60%
 }
 
 body {
@@ -84,7 +84,7 @@ strong {
 
 .settings {
 padding:16px;
-width:30%
+width:40%
 }
 
 label {
@@ -100,10 +100,13 @@ border-color:#d6d6d6;
 border-radius:12px;
 height:300px;
 margin-top:8px;
-max-height:400px;
+max-height:600px;
 min-width:200px;
 padding:12px;
-width:94%
+width:94%;
+font-size: 16px;
+font-family: Roboto;
+box-shadow:0 -4px 10px #0000000d;
 }
 
 input {
@@ -113,8 +116,11 @@ border-color:#d6d6d6;
 border-radius:12px;
 margin-top:8px;
 min-width:200px;
+font-size: 16px;
+Font-family: Roboto;
 padding:12px;
-width:94%
+width:94%;
+box-shadow:0 -4px 10px #0000000d;
 }
 
 .leavePlanning {
