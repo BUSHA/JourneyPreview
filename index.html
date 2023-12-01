@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" ></script>
+    <title>Journey item previewer</title>
+</head>
+<body>
+    <div class="main">
+    <div class="settings">
+       
+    <label for="titleInput">Journey item title:</label><br>
+    <input type="text" id="titleInput" placeholder="Journey item title" value="Journey item title">
+    <br><br>
+    <label for="markdownInput">Journey item markdown:</label><br>
+    <textarea id="markdownInput" rows="10" cols="40"></textarea>
+    <br><br>
+    <button onclick="generatePreview()">Generate journey preview</button>
+    </div>
+    <div class="preview" id="previewContainer"></div>
+    
+
+    <script>
+        function generatePreview() {
+            // Get the title and markdown input values
+            const titleInput = document.getElementById("titleInput").value;
+            const markdownInput = document.getElementById("markdownInput").value;
+
+            // Convert markdown to HTML using marked.js
+            const htmlOutput = marked.parse(markdownInput);
+
+            // Predefined HTML structure with title insertion
+            const predefinedHtml = `
+                <div class="container">
+        <div>
+                <div class="closeIcon">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1C6FF7"></path></svg>
+                </div>
+            <div>
+                <h1>${titleInput}</h1>
+            </div>
+        </div>
+        <div class="subtitle">
+            <div class="complete">
+                <div>
+                    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.89543 0.895431 0 2 0H14C15.1046 0 16 0.895431 16 2V22.0362C16 22.8535 15.0728 23.3257 14.4118 22.845L9.17634 19.0373C8.47504 18.5273 7.52496 18.5273 6.82366 19.0373L1.58817 22.845C0.927204 23.3257 0 22.8535 0 22.0362V2Z" fill="#E86868"></path></svg>
+                </div>
+                <div class="completeDate">
+                    <span>Complete by:</span>
+                    <span class="leavePlanning">&nbsp;Sep 30, 2023</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span aria-hidden="true" class="leavePlanning">leave planning</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                ${htmlOutput}
+</div>
+</div>
+<div class="footer">
+    <div class="markWhole">
+        <div class="markAsCircle"></div>
+        <span class="markText">Mark as completed</span>
+    </div>
+    <div class="ctaBlock">
+        <div class="sc-bYEuID hOedBn sc-bnevFw fRaWgk">
+  <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 5H3C1.34 5 0 6.34 0 8V14H4V18H16V14H20V8C20 6.34 18.66 5 17 5ZM14 16H6V11H14V16ZM17 9C16.45 9 16 8.55 16 8C16 7.45 16.45 7 17 7C17.55 7 18 7.45 18 8C18 8.55 17.55 9 17 9ZM16 0H4V4H16V0Z" fill="#1C6FF7"></path></svg>
+</div>
+        <div class="buttonCTA">Visit getveer</div>
+    </div>
+</div>
+</div>
+`;
+            // Display the preview
+            document.getElementById("previewContainer").innerHTML = predefinedHtml;
+        }
+    </script>
+    </div>
+</body>
+</html>
