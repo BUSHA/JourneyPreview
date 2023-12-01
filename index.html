@@ -4,35 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <title>Journey item previewer</title>
 </head>
 <body>
     <div class="main">
-    <div class="settings">
-       
-    <label for="titleInput">Journey item title:</label><br>
-    <input type="text" id="titleInput" placeholder="Journey item title" value="Journey item title">
-    <br><br>
-    <label for="markdownInput">Journey item markdown:</label><br>
-    <textarea id="markdownInput" rows="10" cols="40"></textarea>
-    <br><br>
-    <button onclick="generatePreview()">Generate journey preview</button>
-    </div>
-    <div class="preview" id="previewContainer"></div>
-    
+        <div class="settings">
+            <label for="titleInput">Journey item title:</label><br>
+            <input type="text" id="titleInput" placeholder="Journey item title" value="Journey item title" oninput="generatePreview()">
+            <br><br>
+            <label for="markdownInput">Journey item markdown:</label><br>
+            <textarea id="markdownInput" rows="10" cols="40" oninput="generatePreview()"></textarea>
+            <br><br>
+        </div>
+        <div class="preview" id="previewContainer"></div>
 
-    <script>
-        function generatePreview() {
-            // Get the title and markdown input values
-            const titleInput = document.getElementById("titleInput").value;
-            const markdownInput = document.getElementById("markdownInput").value;
+        <script>
+            function generatePreview() {
+                // Get the title and markdown input values
+                const titleInput = document.getElementById("titleInput").value;
+                const markdownInput = document.getElementById("markdownInput").value;
 
-            // Convert markdown to HTML using marked.js
-            const htmlOutput = marked.parse(markdownInput);
+                // Convert markdown to HTML using marked.js
+                const htmlOutput = marked.parse(markdownInput);
 
-            // Predefined HTML structure with title insertion
-            const predefinedHtml = `
+                // Predefined HTML structure with title insertion
+                const predefinedHtml = `
                 <div class="container">
         <div>
                 <div class="closeIcon">
@@ -76,11 +73,15 @@
     </div>
 </div>
 </div>
-`;
-            // Display the preview
-            document.getElementById("previewContainer").innerHTML = predefinedHtml;
-        }
-    </script>
+                `;
+
+                // Display the preview
+                document.getElementById("previewContainer").innerHTML = predefinedHtml;
+            }
+
+            // Initial preview generation on page load
+            generatePreview();
+        </script>
     </div>
 </body>
 </html>
