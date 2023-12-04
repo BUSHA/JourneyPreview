@@ -20,16 +20,10 @@ padding:0;
 vertical-align:baseline;
 width:60vw
 }
-
 .main {
-display:flex;
-width:100%
-}
-
-.preview {
-font-weight:400;
-padding: 20px;
-width:60%
+display: flex;
+align-items: flex-start;
+gap: 20px;
 }
 
 body {
@@ -79,12 +73,18 @@ margin:0;
 padding:0
 }
 strong {
-    font-weight: 500;
+font-weight: 500;
 }
 
 .settings {
-padding:16px;
-width:40%
+padding-left: 16px;
+width:400px;
+
+}
+.settings label,
+.settings input,
+.settings textarea {
+    margin-bottom: 10px;
 }
 
 label {
@@ -302,3 +302,32 @@ width:100%
 button:hover {
 background:#002DCB
 }
+
+.tabs-container {
+display: flex;
+margin-bottom: 16px;
+gap: 8px;
+}
+
+.tab-button {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 1px solid #1C6FF7;
+    color: #1C6FF7;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 16px;
+}
+
+.tab-button.active {
+    background-color: #1C6FF7;
+    border-radius: 12px;
+    color: #fff;
+
+}
+
+.preview {
+    width: 100%;
+}
+

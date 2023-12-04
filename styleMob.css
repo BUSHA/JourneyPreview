@@ -1,0 +1,61 @@
+.containerMob {
+    flex-direction: column;
+    width: 375px;
+    -webkit-font-smoothing: antialiased;
+    font-family:'Roboto';
+    color: #626A74;
+    background-color: #fff;
+    border-radius:16px;
+    box-shadow:0 -4px 10px #0000000d;
+    }
+    .contentMob {
+    padding: 16px 16px 8px 16px;
+    font-size: 14px;
+    line-height:150%;
+    text-align: justify;
+    
+    }
+    .titleMob {
+    border:0;
+    color:#192433;
+    font-size:22px;
+    font-weight:500;
+    line-height:130%;
+    margin:0 auto;
+    max-width:90%;
+    padding: 16px 0px 16px 0px;
+    text-align:center;
+    vertical-align:baseline;
+    width:max-content
+    }
+    .CtaButton {
+    align-self: stretch;
+    height: 48px;
+    background: #1C6FF7;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
+    display: inline-flex
+    }
+    .CtaButton:hover {
+    background: #002DCB;
+    cursor: pointer;
+    }
+    .CtaBlockMob {
+    width: 375px;
+    height: 80px;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: inline-flex
+    }
+    ul {
+    list-style: disc;
+    padding: 0.5em 0px 0.5em 2em;
+    }
+    
