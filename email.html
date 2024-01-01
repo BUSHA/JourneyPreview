@@ -1,0 +1,471 @@
+{{ define "layout" }}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="x-apple-disable-message-reformatting" />
+  <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
+  <title></title>
+  <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+  <!--[if mso]>
+      <style>
+        * {
+          font-family: arial !important;
+        }
+      </style>
+    <![endif]-->
+
+  <style>
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+      font-family: 'Arial';
+      font-style: normal;
+    }
+
+    * {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    div[style*="margin: 16px 0"] {
+      margin: 0 !important;
+    }
+
+    table,
+    td {
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+
+    table {
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+      table-layout: fixed !important;
+      margin: 0 auto !important;
+    }
+
+    img {
+      -ms-interpolation-mode: bicubic;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a[x-apple-data-detectors],
+    /* iOS */
+    .unstyle-auto-detected-links a,
+    .aBn {
+      border-bottom: 0 !important;
+      cursor: default !important;
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    .a6S {
+      display: none !important;
+      opacity: 0.01 !important;
+    }
+
+    .im {
+      color: inherit !important;
+    }
+
+    img.g-img+div {
+      display: none !important;
+    }
+
+    /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+      u~div .email-container {
+        min-width: 320px !important;
+      }
+      .emailImage{
+        height: auto !important;
+        max-width: 300px !important;
+        width: 100% !important;
+      }
+    }
+
+    /* iPhone 6, 6S, 7, 8, and X */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+      u~div .email-container {
+        min-width: 375px !important;
+      }
+      .emailImage{
+        height: auto !important;
+        max-width: 350px !important;
+        width: 100% !important;
+      }
+    }
+
+    /* iPhone 6+, 7+, and 8+ */
+    @media only screen and (min-device-width: 414px) {
+      u~div .email-container {
+        min-width: 414px !important;
+      }
+      .emailImage{
+        height: auto !important;
+        max-width: 600px !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+
+  <!--[if gte mso 9]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG />
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+
+  <style>
+    .button-td,
+    .button-a {
+      transition: all 100ms ease-in;
+    }
+
+    .button-td-primary:hover,
+    .button-a-primary:hover {
+      background: #555555 !important;
+      border-color: #555555 !important;
+    }
+
+    .footer-wrapper {
+      padding: 32px 0 24px 0;
+    }
+    .footer-content {
+      text-align: center;
+      padding: 10px;
+      margin: 0 24px;
+      background: #f8f8f8;
+      border-radius: 6px;
+
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+      color: #626a74;
+    }
+    .footer-content p {
+      margin: 16px 0 0 0 !important;
+    }
+
+    .content {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #626a74;
+
+      padding: 0 24px;
+    }
+
+    .content h2 {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 32px;
+      color: #626a74;
+      margin: 0;
+    }
+
+    .outro {
+      white-space: pre-line;
+      margin: 16px 0 0;
+    }
+  </style>
+
+<style>
+  .text-timeline-table {
+    font-size: 16px;
+    line-height: 130%;
+    width: 100%;
+  }
+
+  .text-timeline-content-table {
+    border: 1px solid #e6e7e8;
+    border-top: none;
+  }
+
+  .text-timeline-table-key {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #626a74;
+
+    width: 97%;
+    vertical-align: top;
+    padding: 10px;
+  }
+  .text-timeline-table-value {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+    color: #192433;
+
+    padding: 0 10px 10px;
+    text-align: left;
+  }
+  .text-timeline-table-header {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #e6e7e8;
+    border-bottom: none;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: #626a74;
+    background: #f2f3f4;
+  }
+
+  .text-timeline-table-row {
+    border-top: 1px solid #e6e7e8;
+  }
+
+  .text-timeline-table-row-group {
+    border-top: none;
+  }
+
+  .text-timeline-table-column {
+      display: block !important;
+  }
+</style>
+</head>
+
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #ffffff;">
+  <center style="width: 100%; background-color: #ffffff;">
+    {{safe "<!--[if mso | IE]>"}}
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #222222;">
+    <tr>
+    <td>
+    {{safe "<![endif]-->"}}
+
+    <div style="max-width: 600px; margin: 0 auto;" class="email-container">
+      {{safe "<!--[if mso]>"}}
+            <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600">
+            <tr>
+            <td>
+            {{safe "<![endif]-->"}}
+
+      <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+        style="margin: auto;">
+        <tr>
+          <td style="padding: 24px 0 32px; text-align: center">
+              <img src="cid:default-logo.png" width="{{logoWidth .Customer}}" height="48" alt="Logo" border="0"
+                style="height: auto; background: #ffffff; font-size: 15px; line-height: 15px; color: #ffffff;" />
+          </td>
+        </tr>
+        <tr>
+          <td style="background-color: #ffffff;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tr>
+                <td class="content">
+                  <h2>
+                    {{if .Email.Body.Title}}{{.Email.Body.Title}}{{else}}Hi {{.Email.Body.Name}}!{{end}}
+                  </h2>
+                  {{ if .Email.Body.Content }}
+                    {{ if .Email.Body.ContentIsMarkdown }}
+                      <div>{{markdown .Email.Body.Content .URL}}</div>
+                    {{ else }}
+                      <p>{{.Email.Body.Content}}</p>
+                    {{ end }}
+                  {{ end }}
+
+                  {{if gt (len .Email.Body.TextTimeline) 0}}
+                    <table class="text-timeline-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td class="text-timeline-table-header">Veer timeline</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table class="text-timeline-content-table">
+                            <tr class="text-timeline-table-row-group">
+                                <tr class="text-timeline-table-row">
+                                    <td class="text-timeline-table-column text-timeline-table-key" width="100%">
+                                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                          <td valign="top">Vacation*</td> <td align="right">
+                                              </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                    <td class="text-timeline-table-column text-timeline-table-value">
+                                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                          <td valign="top">Jan 31, 2024 – Feb 06, 2024</td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                            <tr style="border-left: 3px solid #1C6FF7; background: #F6FAFF;" class="text-timeline-table-row">
+                              <td class="text-timeline-table-column text-timeline-table-key" width="100%">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                  <tr>
+                                    <td valign="top">Bonding</td> <td align="right"><img width="112" height="20" src="badge.png">
+                                        </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class="text-timeline-table-column text-timeline-table-value">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                  <tr>
+                                    <td valign="top">Feb 07, 2024 – Feb 26, 2024</td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr class="text-timeline-table-row">
+                                <td class="text-timeline-table-column text-timeline-table-key" width="100%">
+                                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                      <td valign="top">Return to work</td> <td align="right">
+                                          </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td class="text-timeline-table-column text-timeline-table-value">
+                                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                      <td valign="top">Feb 28, 2024</td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  {{end}}
+
+                  {{ if .Email.Body.Invitation }}
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                      <tr>
+                        <td style="padding: 16px 0px">
+                          <img src="cid:{{.Email.Body.Image}}" width="164" height="236" alt="Application screen" border="0"
+                          style="height: auto; background: #ffffff; font-size: 15px; line-height: 15px; color: #ffffff;" />
+                        </td>
+                        <td width="320px" valign="top" style="vertical-align:top;padding: 16px 0px">
+                          <h3 style="font-size:20px; line-height:26px; padding:0 0 8px; margin:0;font-weight: 700;">Reasons to join Veer</h3>
+                          <ul style="margin: 8px 0 12px 24px; padding:0; font-size:16px; line-height:24px;color:#626A74;" align="left" type="disc">
+                            <li>Hey! So many big changes</li>
+                            <li>You have the completed leave plan</li>
+                            <li>We’re proud that you let us be part of that journey</li>
+                          </ul>
+                          <a href="{{.URL}}/leave/start" style="background-color: #1C6FF7; font-size: 16px; line-height: 22px; text-decoration: none; padding: 14px 118px; color: #ffffff; border-radius: 16px; display: inline-block; miso-padding-alt: 0; font-weight: 400;">
+                            {{safe "<!--[if mso]>" }}
+                            <i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
+                            {{safe "<![endif]-->" }}
+                            <span style="mso-text-raise: 16pt;">Join&nbsp;Veer</span>
+                            {{safe "<!--[if mso]>"}}
+                            <i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i>
+                            {{safe "<![endif]-->"}}
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  {{ end }}
+
+                  {{ with .Email.Body.Actions }}
+                    {{ if gt (len .) 0 }}
+                      {{ range $action := . }}
+                        {{ if $action.ConfirmationCode }}
+                          <h2 style="font-size: 24px; line-height: 28px; margin: 16px 0 0;">{{$action.ConfirmationCode}}</h2>
+                        {{ end }}
+                        {{ if $action.Link.Text}}
+                          <p>{{$action.Link.Prefix}}<a href="{{$action.Link.Href}}">{{$action.Link.Text}}</a>{{$action.Link.Suffix}}</p>
+                        {{ end }}
+                        {{ if $action.Button.Text }}
+                        <a href="{{ $action.Button.Href }}" style="background-color: #1C6FF7; font-size: 16px; font-weight: 400; text-decoration: none; padding: 14px 32px; color: #ffffff; border-radius: 16px; display: inline-block; miso-padding-alt: 0;">
+                          {{safe "<!--[if mso]>" }}
+                          <i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
+                          {{safe "<![endif]-->" }}
+                          <span style="mso-text-raise: 15pt;">{{ $action.Button.Text }}</span>
+                          {{safe "<!--[if mso]>"}}
+                          <i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i>
+                          {{safe "<![endif]-->"}}
+                        </a>
+                       {{ end }}
+
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                  {{ if and (.Email.Body.Image) (not .Email.Body.Invitation) }}
+                    <p style="text-align: center; margin-bottom: 0;">
+                        <img src="cid:{{.Email.Body.Image}}" width="536" height="313" class="emailImage" alt="Feature screen" border="0"
+                        style="max-width:536px; height: auto; background: #ffffff; font-size: 15px; line-height: 15px; color: #ffffff;" />
+                    </p>
+                    {{ if (.Email.Body.AdditionalContent) }}
+                      {{ if .Email.Body.ContentIsMarkdown }}
+                        <div>{{markdown .Email.Body.AdditionalContent .URL}}</div>
+                      {{ else }}
+                        <p>{{.Email.Body.AdditionalContent}}</p>
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                  {{ if .Email.Body.Outro }}
+                  <p class="outro">{{.Email.Body.Outro}}</p>
+                  {{ end }}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="footer-wrapper">
+              <div class="footer-content">
+                {{ if not .Email.Body.UnsubscribeHidden}}
+                  <a href="{{.URL}}/timeline">Manage Leave Plan</a>
+                  &nbsp;•&nbsp;
+                  <a href="{{.URL}}/profile#ns">Manage Notifications</a>
+                {{ end }}
+                <p>
+                  Tips: Add <span style="font-weight: bold">no-reply@getveer.com</span> to your contacts and mark Veer emails as "not spam".
+                  Log in to Veer with single sign-on (SSO) and your corporate credentials.
+                </p>
+                <p>
+                  Need help? <a href="https://support.getveer.com/help">Send questions to Customer Support</a>.
+                  <br>
+                  © 2023 Veer Technologies, Inc.
+                </p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      {{safe "<!--[if mso]>"}}
+            </td>
+            </tr>
+            </table>
+            {{safe "<![endif]-->"}}
+    </div>
+    {{safe "<!--[if mso | IE]>"}}
+    </td>
+    </tr>
+    </table>
+    {{safe "<![endif]-->"}}
+  </center>
+</body>
+
+</html>
+{{end}}
