@@ -13,11 +13,18 @@
         <input type="text" id="titleInput" placeholder="Journey item title" value="Replace with a journey item title"
             oninput="generatePreview()">
         <br><br>
+        <select id="prioritySelect" oninput="generatePreview()">
+            <option value="E86868" title="title 1">Priority: Critical</option>
+            <option value="937ED2" title="title 2">Priority: Important</option>
+            <option value="20A05C" title="title 3">Priority: Lower priority</option>
+            <option value="0F97FF" title="title 4">Priority: Helpful tips</option>
+        </select><br><br>
+        <input id="dateInput" value="Sep 30, 2024" oninput="generatePreview()"><br><br>
         <select id="phaseSelect" oninput="generatePreview()">
-            <option value="Leave planning" title="title 1">Leave planning</option>
-            <option value="On leave" title="title 2">On leave</option>
-            <option value="Back to work planning" title="title 3">Back to work planning</option>
-            <option value="Back at work" title="title 4">Back at work</option>
+            <option value="Leave planning">Phase: Leave planning</option>
+            <option value="On leave">Phase: On leave</option>
+            <option value="Back to work planning">Phase: Back to work planning</option>
+            <option value="Back at work">Phase: Back at work</option>
         </select><br><br>
         <textarea id="markdownInput" rows="10" cols="40" oninput="generatePreview()">
 ### Welcome to the journey preview tool!
@@ -28,7 +35,8 @@
         <div class="tabs-container">
             <div id="desktopTab" class="tab-button active" onclick="openTab('desktop')"><img
                     src="images/ic_desktop.svg"> Desktop</div>
-            <div id="mobileTab" class="tab-button" onclick="openTab('mobile')"><img src="images/ic_mobile.svg"> Mobile
+            <div id="mobileTab" class="tab-button" onclick="openTab('mobile')"><img src="images/ic_mobile.svg">
+                Mobile
             </div>
         </div>
 
@@ -47,6 +55,8 @@
     function generatePreview() {
         // Get the title and markdown input values
         const titleInput = document.getElementById("titleInput").value;
+        const prioritySelect = document.getElementById("prioritySelect").value;
+        const dateInput = document.getElementById("dateInput").value;
         const phaseSelect = document.getElementById("phaseSelect").value;
         const ctaInput = document.getElementById("ctaInput").value;
         const markdownInput = document.getElementById("markdownInput").value;
@@ -68,11 +78,11 @@
                 <div class="subtitle">
                     <div class="complete">
                         <div>
-                            <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.89543 0.895431 0 2 0H14C15.1046 0 16 0.895431 16 2V22.0362C16 22.8535 15.0728 23.3257 14.4118 22.845L9.17634 19.0373C8.47504 18.5273 7.52496 18.5273 6.82366 19.0373L1.58817 22.845C0.927204 23.3257 0 22.8535 0 22.0362V2Z" fill="#E86868"></path></svg>
+                            <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.89543 0.895431 0 2 0H14C15.1046 0 16 0.895431 16 2V22.0362C16 22.8535 15.0728 23.3257 14.4118 22.845L9.17634 19.0373C8.47504 18.5273 7.52496 18.5273 6.82366 19.0373L1.58817 22.845C0.927204 23.3257 0 22.8535 0 22.0362V2Z" fill="#${prioritySelect}"></path></svg>
                         </div>
                         <div class="completeDate">
                             <span>Complete by:</span>
-                            <span class="leavePlanning">&nbsp;Sep 30, 2024</span>
+                            <span class="leavePlanning">&nbsp;${dateInput}</span>
                         </div>
                     </div>
                     <div>
