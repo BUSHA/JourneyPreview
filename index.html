@@ -166,14 +166,6 @@
         selectedButton.classList.add('active');
     }
 
-    document.querySelector('label').addEventListener('click', function () {
-        html2canvas(document.querySelector('.containerMob'), {
-            onrendered: function (canvas) {
-                // document.body.appendChild(canvas);
-                return Canvas2Image.saveAsPNG(canvas);
-            }
-        });
-    });
     // Initial preview generation on page load
     generatePreview();
 </script>
