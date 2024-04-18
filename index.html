@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleMob.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <title>Journey item previewer</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js">
+        <title>Journey item previewer</title>
+    </script>
 </head>
 
 <div class="container_grid">
@@ -38,6 +40,7 @@
             <div id="mobileTab" class="tab-button" onclick="openTab('mobile')"><img src="images/ic_mobile.svg">
                 Mobile
             </div>
+            <!-- <button type="button" class="btn btn-default">Take a Screenshot!</button> -->
         </div>
 
         <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">ℹ️ Markdown syntax</a><br><br>
@@ -163,9 +166,16 @@
         selectedButton.classList.add('active');
     }
 
+    document.querySelector('label').addEventListener('click', function () {
+        html2canvas(document.querySelector('.containerMob'), {
+            onrendered: function (canvas) {
+                // document.body.appendChild(canvas);
+                return Canvas2Image.saveAsPNG(canvas);
+            }
+        });
+    });
     // Initial preview generation on page load
     generatePreview();
 </script>
-
 </div>
 </div>
