@@ -78,6 +78,21 @@ input {
     box-shadow: 0 -4px 10px #0000000d;
 }
 
+select {
+    background: #fff;
+    border: 0;
+    border-color: #d6d6d6;
+    border-radius: 12px;
+    min-width: 200px;
+    font-size: 16px;
+    Font-family: Roboto;
+    padding: 12px;
+    width: 94%;
+    box-shadow: 0 -4px 10px #0000000d;
+    right: 13px;
+    border-right: 16px solid transparent
+}
+
 body {
     background: #f1f1f1;
     font-family: 'Roboto'

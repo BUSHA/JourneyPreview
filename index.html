@@ -13,6 +13,12 @@
         <input type="text" id="titleInput" placeholder="Journey item title" value="Replace with a journey item title"
             oninput="generatePreview()">
         <br><br>
+        <select id="phaseSelect" oninput="generatePreview()">
+            <option value="Leave planning" title="title 1">Leave planning</option>
+            <option value="On leave" title="title 2">On leave</option>
+            <option value="Back to work planning" title="title 3">Back to work planning</option>
+            <option value="Back at work" title="title 4">Back at work</option>
+        </select><br><br>
         <textarea id="markdownInput" rows="10" cols="40" oninput="generatePreview()">
 ### Welcome to the journey preview tool!
 1. Replace **this** example with a journey item *markdown* code
@@ -27,7 +33,7 @@
         </div>
 
         <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">ℹ️ Markdown syntax</a><br><br>
-        <label>Version 0.5 alpha<br> Apr 18, 2024</label>
+        <label>Version 0.6 alpha<br> Apr 18, 2024</label>
     </div>
     <div class="Preview-grid">
         <!-- Desktop Preview Container -->
@@ -41,6 +47,7 @@
     function generatePreview() {
         // Get the title and markdown input values
         const titleInput = document.getElementById("titleInput").value;
+        const phaseSelect = document.getElementById("phaseSelect").value;
         const ctaInput = document.getElementById("ctaInput").value;
         const markdownInput = document.getElementById("markdownInput").value;
 
@@ -65,12 +72,12 @@
                         </div>
                         <div class="completeDate">
                             <span>Complete by:</span>
-                            <span class="leavePlanning">&nbsp;Sep 30, 2023</span>
+                            <span class="leavePlanning">&nbsp;Sep 30, 2024</span>
                         </div>
                     </div>
                     <div>
                         <div>
-                            <span aria-hidden="true" class="leavePlanning">leave planning</span>
+                            <span aria-hidden="true" class="leavePlanning">${phaseSelect}</span>
                         </div>
                     </div>
                 </div>
