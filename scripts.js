@@ -1,3 +1,33 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById("screenshotModal");
+    const screenshotImage = document.getElementById("screenshotImage");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    document.getElementById('screenshotLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        html2canvas(document.getElementById('desktopContainer')).then(canvas => {
+            // Convert canvas to data URL
+            const dataUrl = canvas.toDataURL();
+
+            // Set image source to data URL and display modal
+            screenshotImage.src = dataUrl;
+            modal.style.display = "block";
+        });
+    });
+
+    // Close modal when the user clicks on <span> (x)
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close modal when the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+
 function generatePreview() {
     
     const markdownInput = document.getElementById("markdownInput").value;
