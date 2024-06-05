@@ -1,5 +1,7 @@
 .containerMob {
+    display: none;
     flex-direction: column;
+    justify-content: space-between;
     width: 375px;
     -webkit-font-smoothing: antialiased;
     font-family: 'Roboto';
@@ -7,6 +9,7 @@
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 -4px 10px #0000000d;
+    min-height: 640px;
 }
 
 .contentMob {
@@ -30,6 +33,44 @@
     vertical-align: baseline;
     width: max-content
 }
+.topbarMob {
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    margin: 0 auto;
+    padding: 12px 16px 12px 16px;
+    text-align: center;
+    width: calc(100% - 32px);
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.05);
+}
+
+.topbarMobContent {
+    display: flex;
+    color: #1C6FF7;
+    font-size: 14px;
+    gap: 12px;
+    align-items: center;
+}
+
+.subtitleMob {
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: calc(100% - 32px);
+}
+
+.subtitleMobContent {
+    display: flex;
+    color: #626A74;
+    font-size: 12px;
+    /* font-weight: 500; */
+    gap: 6px;
+    align-items: center;
+}
+
 
 .CtaButton {
     align-self: stretch;
