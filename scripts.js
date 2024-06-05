@@ -1,32 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById("screenshotModal");
     const screenshotImage = document.getElementById("screenshotImage");
-    const closeBtn = document.getElementsByClassName("close")[0];
+    const modalContent = modal.getElementsByClassName("modal-content")[0];
 
     document.getElementById('screenshotLink').addEventListener('click', function(event) {
         event.preventDefault();
-        html2canvas(document.getElementById('desktopContainer')).then(canvas => {
+
+        // Determine the active tab and the corresponding container
+        let captureElement;
+        if (document.getElementById('desktopTab').classList.contains('active')) {
+            captureElement = document.getElementById('desktopContainer');
+        } else {
+            captureElement = document.getElementById('mobileContainer');
+        }
+
+        // Take screenshot of the selected container
+        html2canvas(captureElement, { backgroundColor: "rgba(0,0,0,0)" }).then(canvas => {
             // Convert canvas to data URL
             const dataUrl = canvas.toDataURL();
 
-            // Set image source to data URL and display modal
+            // Set image source to data URL
             screenshotImage.src = dataUrl;
-            modal.style.display = "block";
+
+            // Display modal
+            modal.style.display = "flex";
+
+            // Adjust modal width to image width after the image is fully loaded
+            screenshotImage.onload = function() {
+                modalContent.style.width = screenshotImage.naturalWidth / 2 + 'px';
+                modalContent.style.maxWidth = '90%'; // Ensure it doesn't overflow screen width
+            }
         });
     });
 
-    // Close modal when the user clicks on <span> (x)
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
 
-    // Close modal when the user clicks anywhere outside of the modal
+
+    // Close modal when the user clicks anywhere outside of the modal content
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
 });
+
 
 function generatePreview() {
     
